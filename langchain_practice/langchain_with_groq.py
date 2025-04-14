@@ -1,11 +1,11 @@
 import getpass
 import os
 from dotenv import load_dotenv
+load_dotenv()
 from langchain.chat_models import init_chat_model
 from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 
 if __name__ == "__main__":
-    load_dotenv()  # Load .env variables
 
     if not os.environ.get("GROQ_API_KEY"):
         os.environ["GROQ_API_KEY"] = getpass.getpass("Enter API key for Groq: ")
