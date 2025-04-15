@@ -4,21 +4,26 @@ from langchain_ollama import OllamaLLM
 Simple Local Chatbot using Ollama + LangChain
 
 💡 Prerequisites:
-1. Start Ollama server:
+
+1. Install Ollama
+    Download and install Ollama from:
+    👉 https://ollama.com/download
+
+2. Start Ollama server:
     ollama serve
 
-2. Ensure required models are downloaded:
+3. Ensure required models are downloaded:
     ollama pull deepseek-r1
     ollama pull llama3.2
     ollama pull mistral
 
-3. Install the Python package:
+4. Install the Python package:
     pip install langchain_ollama
 
-4. Verify which models are available:
+5. Verify which models are available:
     curl http://localhost:11434/api/tags
 
-5. Command to check resource utilisation on mac:
+6. Command to check resource utilisation on mac:
     top
     htop 
     
