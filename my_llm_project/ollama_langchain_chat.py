@@ -17,6 +17,11 @@ Simple Local Chatbot using Ollama + LangChain
 
 4. Verify which models are available:
     curl http://localhost:11434/api/tags
+
+5. Command to check resource utilisation on mac:
+    top
+    htop 
+    
 """
 
 if __name__ == "__main__":
