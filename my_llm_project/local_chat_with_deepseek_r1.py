@@ -1,38 +1,40 @@
 from langchain_ollama import OllamaLLM
 
-
 """
+Simple Local Chatbot using Ollama + LangChain
 
-Make sure Ollama is running:
-ollama serve
+💡 Prerequisites:
+1. Start Ollama server:
+    ollama serve
 
-Make sure the model is available locally:
-ollama pull deepseek-r1
+2. Ensure required models are downloaded:
+    ollama pull deepseek-r1
+    ollama pull llama3.2
+    ollama pull mistral
 
-Make sure langchain_ollama is installed:
-pip install langchain_ollama
+3. Install the Python package:
+    pip install langchain_ollama
 
-Check which models are downloaded:
-curl http://localhost:11434/api/tags
-
+4. Verify which models are available:
+    curl http://localhost:11434/api/tags
 """
 
 if __name__ == "__main__":
-
-    model ="llama3.2"
-    # model ="deepseek-r1"
+    # model = "mistral"
+    model = "llama3.2"
+    # model = "deepseek-r1"
 
     llm = OllamaLLM(model=model)
 
-    print(f"Warming up the {model} model, please wait...")
-    llm.invoke("Hello")  # Pre-warm with a quick dummy call
-    print("✅ Model is ready! Type your question (or 'exit' to quit).")
+    print(f"\nWarming up the '{model}' model, please wait...")
+    llm.invoke("Hello")  # Pre-warm with a simple message
+    print(f"✅ '{model}' model is ready! Start chatting (type 'exit' to quit).\n")
 
     while True:
         user_input = input("You: ")
-        if user_input.lower() in ['exit', 'quit']:
-            print("👋 Exiting. Have a great day!")
+        if user_input.lower() in ["exit", "quit"]:
+            print("👋 Exiting chat. See you next time!")
             break
 
         response = llm.invoke(user_input)
-        print("LLM:", response)
+        print(f"{model.upper()}:", response, "\n")
